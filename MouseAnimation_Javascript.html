@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse Animation</title>
+        <style>
+            .mouseAnimation {
+                width: 5px;
+                height: 5px;
+                border: 1px solid black;
+                position: absolute;
+                border-radius: 15px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <script type="text/javascript"> 
+        document.onmousemove = createAnimation;
+
+        var colors = ['green', 'darkgreen', 'red']
+
+        function createAnimation (event) {
+
+            var animation = document.createElement("div");
+            animation.setAttribute("class", "mouseAnimation")
+            document.body.appendChild(animation);
+
+            animation.style.left = event.clientX + 'px';
+            animation.style.top = event.clientY + 'px';
+
+            var color = colors[Math.round(Math.random() * colors.length)];
+            animation.style.borderColor = color;
+
+            animation.style.transition = "all 0.5s linear 0s";
+
+            animation.style.left = animation.offsetLeft - 30 + 'px';
+            animation.style.top = animation.offsetTop - 30 + 'px';
+
+
+            animation.style.width = "50px";
+            animation.style.height = "50px";
+            animation.style.borderWidth = "3px";
+            animation.style.opacity = 0;
+            animation.style.borderRadius = "50px";
+
+        }
+        </script>
+    </body>
+    
+</html>
